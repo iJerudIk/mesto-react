@@ -4,7 +4,7 @@ import Header from './landing/Header';
 import Main from './landing/Main';
 import Footer from './landing/Footer';
 import PopupWithForm from './landing/PopupWithForm';
-import PopupWithImage from './landing/PopupWithImage';
+import ImagePopup from './landing/ImagePopup';
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
@@ -69,7 +69,7 @@ function App() {
         <button type="submit" name="button-submit" className="popup__submit-button">Да</button>
       </PopupWithForm>
 
-      <PopupWithImage card={selectedCard} onClose={closeAllPopups} />
+      <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </div>
   )
 }

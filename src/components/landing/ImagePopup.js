@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupWithImage(props) {
+function ImagePopup(props) {
   function handleOverlayClose(evt) {
     if(evt.target.classList.contains('popup')){
       props.onClose();
@@ -21,4 +21,4 @@ function PopupWithImage(props) {
 }
 
 
-export default PopupWithImage;
+export default ImagePopup;
