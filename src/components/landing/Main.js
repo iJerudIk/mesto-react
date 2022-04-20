@@ -16,8 +16,15 @@ function Main(props){
         setUserDescription(userInfo.about);
         setUserAvatar(userInfo.avatar);
       })
+      .catch((err) => {
+        console.log(`Ошибка : ${err}`);
+      })
 
-    api.getInitialCards().then((cards) => {setCards(cards)})
+    api.getInitialCards()
+      .then((cards) => {setCards(cards)})
+      .catch((err) => {
+        console.log(`Ошибка : ${err}`);
+      })
   }, [])
 
   return (
