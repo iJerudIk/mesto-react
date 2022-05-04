@@ -8,7 +8,7 @@ function PopupWithForm(props) {
   }
 
   return (
-    <div className={`popup popup_content_${props.name} ${props.isOpen ? 'popup_opened' : ''}`} onMouseDown={handleOverlayClose}>
+    <div className={`popup ${props.isOpen ? 'popup_opened' : ''}`} onMouseDown={handleOverlayClose}>
       <div className="popup__content">
         <button type="button" name="button-close" className="popup__close-button" onClick={props.onClose}></button>
         <h3 className="popup__name">{props.title}</h3>

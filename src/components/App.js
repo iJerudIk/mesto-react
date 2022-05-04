@@ -25,14 +25,19 @@ function App() {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
 
     if(isLiked){
-      api.removeLike(card._id).then((newCard) => {setCards((state) => state.map((c) => c._id === card._id ? newCard : c))});
+      api.removeLike(card._id)
+        .then((newCard) => {setCards((state) => state.map((c) => c._id === card._id ? newCard : c))})
+        .catch((err) => {console.log(`Ошибка : ${err}`)});
     }else{
-      api.setLike(card._id).then((newCard) => {setCards((state) => state.map((c) => c._id === card._id ? newCard : c))});
+      api.setLike(card._id)
+        .then((newCard) => {setCards((state) => state.map((c) => c._id === card._id ? newCard : c))})
+        .catch((err) => {console.log(`Ошибка : ${err}`)});
     }
   }
   function handleCardDelete(card) {
-    setCards(cards.filter((c) => {return c._id !== card._id}));
-    api.removeCard(card._id);
+    api.removeCard(card._id)
+      .then(() => {setCards(cards.filter((c) => {return c._id !== card._id}))})
+      .catch((err) => {console.log(`Ошибка : ${err}`)});
   }
 
   function handleEditProfileClick() {setIsEditProfilePopupOpen(true)}
@@ -48,7 +53,8 @@ function App() {
   }
 
   function handleUpdateUser(userInfo) {
-    api.setUserInfo(userInfo);
+    api.setUserInfo(userInfo)
+      .catch((err) => {console.log(`Ошибка : ${err}`)});
     setCurrentUser({
       ...currentUser,
       name: userInfo.name,
@@ -57,7 +63,8 @@ function App() {
     closeAllPopups();
   }
   function handleUpdateAvatar(userInfo) {
-    api.setUserAvatar(userInfo.avatar);
+    api.setUserAvatar(userInfo.avatar)
+      .catch((err) => {console.log(`Ошибка : ${err}`)});
     setCurrentUser({
       ...currentUser,
       avatar: userInfo.avatar,
@@ -69,6 +76,7 @@ function App() {
       .then((newCard) => {
         setCards([newCard, ...cards]);
       })
+      .catch((err) => {console.log(`Ошибка : ${err}`)});
     closeAllPopups();
   }
 

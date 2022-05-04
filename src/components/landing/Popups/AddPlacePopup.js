@@ -16,6 +16,13 @@ function AddPlacePopup(props) {
     });
   }
 
+  React.useEffect(() => {
+    if(!props.isOpen){
+      titleRef.current.value = '';
+      linkRef.current.value = '';
+    }
+  })
+
   return (
     <PopupWithForm name="add-place" title="Новое место" buttonText="Создать" onSubmit={handleSubmit} {...props}>
       <div className="popup__field popup__field_content_title">
