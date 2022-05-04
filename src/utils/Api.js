@@ -12,7 +12,7 @@ class Api {
       .then(this._checkResponse)
   }
 
-  addNewCard(cardInfo, button) {
+  addNewCard(cardInfo) {
     return fetch(`${this._baseUrl}/cards`, {
       method : 'POST',
       headers : this._headers,
@@ -23,7 +23,7 @@ class Api {
     })
       .then(this._checkResponse)
   }
-  removeCard(cardId, button) {
+  removeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method : 'DELETE',
       headers : this._headers
@@ -38,7 +38,7 @@ class Api {
     })
       .then(this._checkResponse)
   }
-  setUserInfo(userInfo, button) {
+  setUserInfo(userInfo) {
     return fetch(`${this._baseUrl}/users/me`, {
       method : 'PATCH',
       headers : this._headers,
@@ -49,7 +49,7 @@ class Api {
     })
       .then(this._checkResponse)
   }
-  setUserAvatar(avatarLink, button) {
+  setUserAvatar(avatarLink) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method : 'PATCH',
       headers : this._headers,
