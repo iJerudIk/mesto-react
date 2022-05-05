@@ -36,7 +36,7 @@ function App() {
   }
   function handleCardDelete(card) {
     api.removeCard(card._id)
-      .then(() => {setCards(cards.filter((c) => {return c._id !== card._id}))})
+      .then(() => {setCards(state=>state.filter((c) => {return c._id !== card._id}))})
       .catch((err) => {console.log(`Ошибка : ${err}`)});
   }
 
