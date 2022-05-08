@@ -1,4 +1,7 @@
 .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: calc(100% - 54px);
   max-width: 880px;
   min-height: 74px;
